@@ -1,6 +1,8 @@
 # TLD-CustomNomad
 Mod for The Long Dark to customise the Nomad challenge (primarily to make it harder and more suitable for veterans)
 
+Requires The Long Dark Mod Loader: https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
+
 Features so far:
 * Days required raised from 3 to 5 in each location
 * Difficulty raised from Voyageur to Stalker
