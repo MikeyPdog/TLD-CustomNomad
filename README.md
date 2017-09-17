@@ -14,3 +14,11 @@ Future:
 * Configurable variables through text file
 * (potential other mod) Frostbite isn't permanent
 * Stop starvation / hibernation
+* Add locations for new areas (Muskeg etc)
+
+Maybes:
+* Harvesting without a tool takes longer
+* Increase wet clothes mechanic
+** Clothes get wet faster
+** Clothes start getting heavier earlier (before 25% wet)
+** Frostbite risk increased with wet clothes
