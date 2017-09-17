@@ -1,4 +1,11 @@
-﻿namespace NomadExtreme
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using Harmony;
+using UnityEngine;
+
+namespace NomadExtreme
 {
 
     /*
@@ -30,7 +37,7 @@
     public class Globals
     {
         public static float SprintCaloriesMultiplier = 5.0f;
-        public static int DaysToSpendNomad = 5;
+        public static float DaysToSpendNomad = 5;
         public static float ClothingRepairMultiplier = 0.5f;
 
         public static bool NomadActive { get; set; }

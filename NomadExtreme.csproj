@@ -54,9 +54,13 @@
     <Compile Include="PatchClothingRepairMultiplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Nomad.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y "$(ProjectDir)bin\Release\NomadExtreme.dll" "D:\Steam\SteamApps\common\TheLongDark\mods\"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y "$(ProjectDir)bin\Release\NomadExtreme.dll" "D:\Steam\SteamApps\common\TheLongDark\mods\"
+xcopy /y "$(ProjectDir)Nomad.txt" "D:\Steam\SteamApps\common\TheLongDark\mods\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
