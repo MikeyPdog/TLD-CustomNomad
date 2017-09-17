@@ -19,6 +19,6 @@ Future:
 Maybes:
 * Harvesting without a tool takes longer
 * Increase wet clothes mechanic
-** Clothes get wet faster
-** Clothes start getting heavier earlier (before 25% wet)
-** Frostbite risk increased with wet clothes
+    * Clothes get wet faster
+    * Clothes start getting heavier earlier (before 25% wet)
+    * Frostbite risk increased with wet clothes
