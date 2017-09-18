@@ -18,4 +18,17 @@ namespace NomadExtreme
             }
         }
     }
+
+    [HarmonyPatch(typeof(PlayerManager))]
+    [HarmonyPatch("CalculateModifiedCalorieBurnRate")]
+    class PatchCalculateModifiedCalorieBurnRate
+    {
+        static void Postfix(ref float __result)
+        {
+            if (Globals.NomadActive)
+            {
+                __result *= Globals.CalorieBurnRateMultiplier;
+            }
+        }
+    }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Harmony;
 using UnityEngine;
 
@@ -16,18 +14,7 @@ namespace NomadExtreme
             FileLog.Log(DateTime.Today.ToShortDateString() + " ---- Loaded Nomad Mod.");
             try
             {
-                var dic = File.ReadAllLines("mods/Nomad.txt")
-                    .Where(l => !l.StartsWith("/"))
-                    .Select(l => l.Split(new[] { '=' }))
-                    .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
-
-                Globals.SprintCaloriesMultiplier = float.Parse(dic["SprintCaloriesMultiplier"]);
-                Globals.DaysToSpendNomad = float.Parse(dic["DaysToSpendNomad"]);
-                Globals.ClothingRepairMultiplier = float.Parse(dic["ClothingRepairMultiplier"]);
-                Globals.CabinFever = bool.Parse(dic["CabinFever"]);
-                Globals.StarvationDamageMultiplier = float.Parse(dic["StarvationDamageMultiplier"]);
-
-                FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
+                Globals.LoadFromFile();
             }
             catch (Exception e)
             {

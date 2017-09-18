@@ -1,4 +1,8 @@
-﻿namespace NomadExtreme
+﻿using System.IO;
+using System.Linq;
+using Harmony;
+
+namespace NomadExtreme
 {
 
     /*
@@ -34,7 +38,24 @@
         public static float ClothingRepairMultiplier = 0.5f;
         public static bool CabinFever = false;
         public static float StarvationDamageMultiplier = 5;
+        public static float CalorieBurnRateMultiplier = 0.5f;
 
         public static bool NomadActive { get; set; }
+
+        public static void LoadFromFile()
+        {
+            var dic = File.ReadAllLines("mods/Nomad.txt")
+                        .Where(l => !l.StartsWith("/"))
+                        .Select(l => l.Split(new[] { '=' }))
+                        .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
+
+            SprintCaloriesMultiplier    = float.Parse(dic["SprintCaloriesMultiplier"]);
+            DaysToSpendNomad            = float.Parse(dic["DaysToSpendNomad"]);
+            ClothingRepairMultiplier    = float.Parse(dic["ClothingRepairMultiplier"]);
+            CabinFever                  = bool.Parse(dic["CabinFever"]);
+            StarvationDamageMultiplier  = float.Parse(dic["StarvationDamageMultiplier"]);
+
+            FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
+        }
     }
 }
