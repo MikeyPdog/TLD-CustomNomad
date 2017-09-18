@@ -123,7 +123,11 @@ namespace NomadExtreme
             {		
 			    __instance.m_TimerObject.SetActive(false);
 			    __instance.m_ChallengeTexture.mainTexture = (Texture2D)Resources.Load("LargeTextures/challenge_Nomad", typeof(Texture2D));
-			    Utils.SetActive(__instance.m_ObjectiveTransform.gameObject, true);
+                Utils.SetActive(__instance.m_ObjectiveTransform.gameObject, true);
+
+                var nomadText = Localization.Get("GAMEPLAY_" + ExperienceModeType.ChallengeNomad);
+                __instance.m_MissionNameLabel.text = nomadText;
+                __instance.m_MissionNameHeaderLabel.text = nomadText;
             }
         }
     }
@@ -135,8 +139,9 @@ namespace NomadExtreme
         static void Postfix(Panel_Log __instance)
         {
             if (Globals.NomadActive)
-            {		
-			    __instance.m_CurrentGameLabel.text = Localization.Get("GAMEPLAY_CurrentChallenge");
+            {
+                var nomadText = Localization.Get("GAMEPLAY_" + ExperienceModeType.ChallengeNomad);
+                __instance.m_CurrentGameLabel.text = nomadText;
             }
         }
     }
