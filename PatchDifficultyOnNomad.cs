@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Harmony;
@@ -147,8 +148,9 @@ namespace NomadExtreme
         static void Postfix(Panel_Log __instance)
         {
             if (Globals.NomadActive)
-            {		
-			    __instance.m_CurrentGameLabel.text = Localization.Get("GAMEPLAY_CurrentChallenge");
+            {
+                var m_ActiveStates = Traverse.Create(__instance).Field("m_ActiveStates").GetValue<List<PanelLogState>>();
+			    m_ActiveStates.Remove(PanelLogState.DayListStats);
             }
         }
     }
