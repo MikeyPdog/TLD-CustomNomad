@@ -39,6 +39,7 @@ namespace NomadExtreme
         public static float SprintCaloriesMultiplier = 5.0f;
         public static float DaysToSpendNomad = 5;
         public static float ClothingRepairMultiplier = 0.5f;
+        public static bool CabinFever = false;
 
         public static bool NomadActive { get; set; }
     }

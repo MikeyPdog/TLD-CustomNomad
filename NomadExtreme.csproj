@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NomadPatches.cs" />
+    <Compile Include="PatchCabinFever.cs" />
     <Compile Include="PatchNumberOfDaysRequiredInNomad.cs" />
     <Compile Include="PatchDifficultyOnNomad.cs" />
     <Compile Include="PatchSprintingCalorieBurnRate.cs" />

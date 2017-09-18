@@ -1,3 +1,4 @@
 ﻿ClothingRepairMultiplier = 0.5
 DaysToSpendNomad = 4
 SprintCaloriesMultiplier = 5.0
+CabinFever = false
