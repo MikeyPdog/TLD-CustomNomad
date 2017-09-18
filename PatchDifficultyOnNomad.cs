@@ -25,6 +25,7 @@ namespace NomadExtreme
                 Globals.DaysToSpendNomad = float.Parse(dic["DaysToSpendNomad"]);
                 Globals.ClothingRepairMultiplier = float.Parse(dic["ClothingRepairMultiplier"]);
                 Globals.CabinFever = bool.Parse(dic["CabinFever"]);
+                Globals.StarvationDamageMultiplier = float.Parse(dic["StarvationDamageMultiplier"]);
 
                 FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
             }

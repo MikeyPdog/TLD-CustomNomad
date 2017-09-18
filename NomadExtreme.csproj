@@ -53,6 +53,7 @@
     <Compile Include="PatchDifficultyOnNomad.cs" />
     <Compile Include="PatchSprintingCalorieBurnRate.cs" />
     <Compile Include="PatchClothingRepairMultiplier.cs" />
+    <Compile Include="PatchStarvation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

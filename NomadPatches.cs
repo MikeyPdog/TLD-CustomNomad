@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Harmony;
-using UnityEngine;
-
-namespace NomadExtreme
+﻿namespace NomadExtreme
 {
 
     /*
@@ -40,6 +33,7 @@ namespace NomadExtreme
         public static float DaysToSpendNomad = 5;
         public static float ClothingRepairMultiplier = 0.5f;
         public static bool CabinFever = false;
+        public static float StarvationDamageMultiplier = 5;
 
         public static bool NomadActive { get; set; }
     }

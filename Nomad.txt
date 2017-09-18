@@ -2,3 +2,4 @@
 DaysToSpendNomad = 4
 SprintCaloriesMultiplier = 5.0
 CabinFever = false
+StarvationDamageMultiplier = 5
