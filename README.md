@@ -3,6 +3,8 @@ Mod for The Long Dark to customise the Nomad challenge (primarily to make it har
 
 Requires The Long Dark Mod Loader: https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 
+Copy CustomNomad.dll and Nomad.txt file into your /mods/ folder. Tweak the values of Nomad.txt to suit your game style!
+
 Features so far:
 * All features customisable using text file
 * Days required raised from 3 to 5 in each location
