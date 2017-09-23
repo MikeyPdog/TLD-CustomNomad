@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using Harmony;
 
@@ -31,7 +32,7 @@ namespace NomadExtreme
     // Usually, you will have one class for each method that you want to patch. Inside that class, you define a combination of Prefix, Postfix or Transpiler methods. 
 
 
-    public class Globals
+    public static class NomadGlobals
     {
         public static float SprintCaloriesMultiplier = 5.0f;
         public static float DaysToSpendNomad = 5;
@@ -39,6 +40,7 @@ namespace NomadExtreme
         public static bool CabinFeverEnabled = false;
         public static float StarvationDamageMultiplier = 5;
         public static float CalorieBurnRateMultiplier = 0.5f;
+        public static ExperienceModeType Difficulty = ExperienceModeType.Stalker;
 
         public static bool NomadActive { get; set; }
 
@@ -54,8 +56,14 @@ namespace NomadExtreme
             ClothingRepairMultiplier    = float.Parse(dic["ClothingRepairMultiplier"]);
             CabinFeverEnabled           = bool.Parse(dic["CabinFeverEnabled"]);
             StarvationDamageMultiplier  = float.Parse(dic["StarvationDamageMultiplier"]);
+            Difficulty = (ExperienceModeType)Enum.Parse(typeof(ExperienceModeType), dic["Difficulty"]);
 
             FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
+        }
+
+        public static T ParseString<T>(object obj)
+        {
+            return (T)Convert.ChangeType(obj, typeof(T));
         }
     }
 }

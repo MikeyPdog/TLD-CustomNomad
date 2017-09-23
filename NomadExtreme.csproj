@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NomadExtreme</RootNamespace>
-    <AssemblyName>NomadExtreme</AssemblyName>
+    <AssemblyName>CustomNomad</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,7 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NomadPatches.cs" />
+    <Compile Include="NomadGlobals.cs" />
     <Compile Include="PatchCabinFever.cs" />
     <Compile Include="PatchNumberOfDaysRequiredInNomad.cs" />
     <Compile Include="PatchDifficultyOnNomad.cs" />

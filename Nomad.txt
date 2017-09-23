@@ -1,6 +1,8 @@
 ﻿ClothingRepairMultiplier = 0.5
-DaysToSpendNomad = 4
+DaysToSpendNomad = 5
 SprintCaloriesMultiplier = 5.0
 CabinFeverEnabled = false
 StarvationDamageMultiplier = 5
 CalorieBurnRateMultiplier = 0.5
+// Valid values are Pilgrim, Voyageur, Stalker, Interloper
+Difficulty = Stalker

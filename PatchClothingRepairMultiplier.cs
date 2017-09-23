@@ -8,9 +8,9 @@ namespace NomadExtreme
     {
         static void Postfix(Skill_ClothingRepair __instance, ref float __result)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
-                __result *= Globals.ClothingRepairMultiplier;
+                __result *= NomadGlobals.ClothingRepairMultiplier;
             }
         }
     }

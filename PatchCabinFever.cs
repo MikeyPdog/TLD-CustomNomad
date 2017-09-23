@@ -8,7 +8,7 @@ namespace NomadExtreme
     {
         static bool Prefix()
         {
-            if (Globals.NomadActive && Globals.CabinFeverEnabled == false)
+            if (NomadGlobals.NomadActive && NomadGlobals.CabinFeverEnabled == false)
             {
                 return false;
             }

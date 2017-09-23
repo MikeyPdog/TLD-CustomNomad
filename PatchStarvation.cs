@@ -8,12 +8,12 @@ namespace NomadExtreme
     {
         static void Postfix(Condition __instance)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
                 var m_StartHasBeenCalled = Traverse.Create(__instance).Field("m_StartHasBeenCalled").GetValue<bool>();
                 if (m_StartHasBeenCalled)
                 {
-                    __instance.m_HPDecreasePerDayFromStarving *= Globals.StarvationDamageMultiplier;
+                    __instance.m_HPDecreasePerDayFromStarving *= NomadGlobals.StarvationDamageMultiplier;
                 }
             }
         }
@@ -25,9 +25,9 @@ namespace NomadExtreme
     {
         static void Postfix(ref float __result)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
-                __result *= Globals.CalorieBurnRateMultiplier;
+                __result *= NomadGlobals.CalorieBurnRateMultiplier;
             }
         }
     }

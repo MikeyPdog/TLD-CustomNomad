@@ -14,7 +14,7 @@ namespace NomadExtreme
             FileLog.Log(DateTime.Today.ToShortDateString() + " ---- Loaded Nomad Mod.");
             try
             {
-                Globals.LoadFromFile();
+                NomadGlobals.LoadFromFile();
             }
             catch (Exception e)
             {
@@ -30,13 +30,13 @@ namespace NomadExtreme
         {
             if (GameManager.GetExperienceModeManagerComponent().GetCurrentExperienceModeType() == ExperienceModeType.ChallengeNomad)
             {
-                GameManager.GetExperienceModeManagerComponent().SetExperienceModeType(ExperienceModeType.Stalker);
+                GameManager.GetExperienceModeManagerComponent().SetExperienceModeType(NomadGlobals.Difficulty);
 //                HUDMessage.AddMessage("Set to stalker!");
-                Globals.NomadActive = true;
+                NomadGlobals.NomadActive = true;
             }
             else
             {
-                Globals.NomadActive = false;
+                NomadGlobals.NomadActive = false;
             }
         }
     }
@@ -47,7 +47,7 @@ namespace NomadExtreme
     {
         static void Prefix()
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
                 InterfaceManager.m_Panel_Loading.m_CommandToRunAfterLoad = "mission_jump chnmd false";
                 InterfaceManager.m_Panel_Loading.m_SaveAfterLoad = true;
@@ -61,12 +61,10 @@ namespace NomadExtreme
     {
         static void Postfix()
         {
-            FileLog.Log("Deserialize postfix");
             if (GameManager.GetExperienceModeManagerComponent().GetCurrentExperienceModeType() == ExperienceModeType.ChallengeNomad)
             {
-                GameManager.GetExperienceModeManagerComponent().SetExperienceModeType(ExperienceModeType.Stalker);
-                FileLog.Log("Deserialize postfix - set to stalker");
-                Globals.NomadActive = true;
+                GameManager.GetExperienceModeManagerComponent().SetExperienceModeType(NomadGlobals.Difficulty);
+                NomadGlobals.NomadActive = true;
             }
         }
     }
@@ -78,7 +76,7 @@ namespace NomadExtreme
         static bool Prefix(ref bool __result)
         {
             // If nomad enabled, set result to false, also return false
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
                 __result = false;
                 return false;
@@ -95,10 +93,12 @@ namespace NomadExtreme
         static void Postfix(Panel_PauseMenu __instance)
         {
             // If nomad enabled, set result to false, also return false
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {		
+		        __instance.m_PilgrimIcon.gameObject.SetActive(false);
 		        __instance.m_VoyageurIcon.gameObject.SetActive(false);
 		        __instance.m_StalkerIcon.gameObject.SetActive(false);
+		        __instance.m_NightmareIcon.gameObject.SetActive(false);
 		        __instance.m_NomadIcon.gameObject.SetActive(true);
             }
         }
@@ -110,7 +110,7 @@ namespace NomadExtreme
     {
         static void Postfix(Panel_Log __instance)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {		
 			    __instance.m_TimerObject.SetActive(false);
 			    __instance.m_ChallengeTexture.mainTexture = (Texture2D)Resources.Load("LargeTextures/challenge_Nomad", typeof(Texture2D));
@@ -129,7 +129,7 @@ namespace NomadExtreme
     {
         static void Postfix(Panel_Log __instance)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
                 var nomadText = Localization.Get("GAMEPLAY_" + ExperienceModeType.ChallengeNomad);
                 __instance.m_CurrentGameLabel.text = nomadText;
@@ -143,12 +143,11 @@ namespace NomadExtreme
     {
         static void Postfix(Panel_Log __instance)
         {
-            if (Globals.NomadActive)
+            if (NomadGlobals.NomadActive)
             {
                 var m_ActiveStates = Traverse.Create(__instance).Field("m_ActiveStates").GetValue<List<PanelLogState>>();
 			    m_ActiveStates.Remove(PanelLogState.DayListStats);
             }
         }
     }
-// NOTE: Nomad icon returned on Loading game. Check difficulty still there after resume!
 }

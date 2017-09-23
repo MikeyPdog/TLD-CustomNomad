@@ -1,5 +1,5 @@
 ﻿using Harmony;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace NomadExtreme
 {
@@ -7,11 +7,22 @@ namespace NomadExtreme
     [HarmonyPatch("OnUpdate")]
     class PatchNumberOfDaysRequiredInNomad
     {
-        static bool Prefix(Action_NomadRequirements __instance)
+        private static bool Prefix(Action_NomadRequirements __instance)
         {
-            Globals.NomadActive = true;
-            __instance.daysToSpendInEach = Globals.DaysToSpendNomad;
+            NomadGlobals.NomadActive = true;
+            __instance.daysToSpendInEach = NomadGlobals.DaysToSpendNomad;
+            if (GameManager.m_SceneTransitionData.m_ForceNextSceneLoadTriggerScene != null)
+            {
+                string text = SceneManager.GetActiveScene().name + ":" + GameManager.m_SceneTransitionData.m_ForceNextSceneLoadTriggerScene;
+                HUDMessage.AddMessage(text);
+            }
+            else
+            {
+                HUDMessage.AddMessage(SceneManager.GetActiveScene().name);
+            }
             return true;
         }
     }
+
+    // Maybe add: Hunting Lodge (Broken railroad)
 }
