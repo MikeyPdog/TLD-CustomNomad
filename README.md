@@ -1,20 +1,22 @@
-# TLD-CustomNomad
+# The Long Dark: Custom Nomad Mod
 Mod for The Long Dark to customise the Nomad challenge (primarily to make it harder and more suitable for veterans)
 
 Requires The Long Dark Mod Loader: https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 
 Features so far:
+* All features customisable using text file
 * Days required raised from 3 to 5 in each location
 * Difficulty raised from Voyageur to Stalker
 * Ability to choose start region, no longer start in the farmhouse
-* Clothing repair % halved
-* Sprinting uses more 5x food
+* Clothing repair % reduced
+* Sprinting uses more food
+* Starvation hurts more, starving all day is no longer optimal
+* Base calorie usage reduced to compensate for starvation hurting
+* Cabin fever can be toggled off
 
 Future:
-* Configurable variables through text file
 * (potential other mod) Frostbite isn't permanent
-* Stop starvation / hibernation
-* Add locations for new areas (Muskeg etc)
+* Add optional new locations for new areas (e.g. Broken Railroad hunters lodge)
 
 Maybes:
 * Harvesting without a tool takes longer

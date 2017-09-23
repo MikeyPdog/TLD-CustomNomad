@@ -36,7 +36,7 @@ namespace NomadExtreme
         public static float SprintCaloriesMultiplier = 5.0f;
         public static float DaysToSpendNomad = 5;
         public static float ClothingRepairMultiplier = 0.5f;
-        public static bool CabinFever = false;
+        public static bool CabinFeverEnabled = false;
         public static float StarvationDamageMultiplier = 5;
         public static float CalorieBurnRateMultiplier = 0.5f;
 
@@ -52,7 +52,7 @@ namespace NomadExtreme
             SprintCaloriesMultiplier    = float.Parse(dic["SprintCaloriesMultiplier"]);
             DaysToSpendNomad            = float.Parse(dic["DaysToSpendNomad"]);
             ClothingRepairMultiplier    = float.Parse(dic["ClothingRepairMultiplier"]);
-            CabinFever                  = bool.Parse(dic["CabinFever"]);
+            CabinFeverEnabled           = bool.Parse(dic["CabinFeverEnabled"]);
             StarvationDamageMultiplier  = float.Parse(dic["StarvationDamageMultiplier"]);
 
             FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
