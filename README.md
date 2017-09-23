@@ -3,7 +3,7 @@ Mod for The Long Dark to customise the Nomad challenge (primarily to make it har
 
 Requires The Long Dark Mod Loader: https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 
-Copy CustomNomad.dll and Nomad.txt file into your /mods/ folder. Tweak the values of Nomad.txt to suit your game style!
+Copy CustomNomad.dll and CustomNomad.txt file into your /mods/ folder. Tweak the values of CustomNomad.txt to suit your game style, or use my values for a hardcore experience!
 
 Features so far:
 * All features customisable using text file
@@ -15,6 +15,8 @@ Features so far:
 * Starvation hurts more, starving all day is no longer optimal
 * Base calorie usage reduced to compensate for starvation hurting
 * Cabin fever can be toggled off
+
+Check out desktop / harmony.log.txt for errors if things arent working.
 
 Future:
 * (potential other mod) Frostbite isn't permanent
@@ -29,6 +31,6 @@ Maybes:
 
 Donation
 
-If you like this mod, you can buy me a cup of coffee - all donations encourage me to develop more features and mods!
+If you like this mod and would like to support future development, please donate a few bucks - every little helps!
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B4MTA4JTM8YZN)
