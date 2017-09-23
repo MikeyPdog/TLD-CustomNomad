@@ -31,6 +31,6 @@ Maybes:
 
 Donation
 
-If you like this mod and would like to support future development, please donate a few bucks - every little helps!
+If you like this mod and would like to support future development, you can donate here:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B4MTA4JTM8YZN)
