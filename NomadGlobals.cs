@@ -46,7 +46,7 @@ namespace NomadExtreme
 
         public static void LoadFromFile()
         {
-            var dic = File.ReadAllLines("mods/Nomad.txt")
+            var dic = File.ReadAllLines("mods/CustomNomad.txt")
                         .Where(l => !l.StartsWith("/"))
                         .Select(l => l.Split(new[] { '=' }))
                         .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
