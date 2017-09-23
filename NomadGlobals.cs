@@ -31,10 +31,17 @@ namespace NomadExtreme
             SetGlobal<float>(dic, "ClothingRepairMultiplier", x => ClothingRepairMultiplier = x);
             SetGlobal<bool>(dic, "CabinFeverEnabled", x => CabinFeverEnabled = x);
             SetGlobal<float>(dic, "StarvationDamageMultiplier", x => StarvationDamageMultiplier = x);
-            SetGlobal<float>(dic, "DaysToSpendNomad", x => DaysToSpendNomad = x);
-            SetGlobal<float>(dic, "DaysToSpendNomad", x => DaysToSpendNomad = x);
+            SetGlobal<float>(dic, "CalorieBurnRateMultiplier", x => CalorieBurnRateMultiplier = x);
+            SetGlobal<ExperienceModeType>(dic, "Difficulty", x => Difficulty = x);
 
-            FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
+            var leftoverEntries = dic.Select(kvp => kvp.Key + "=" + kvp.Value).ToArray();
+            if (leftoverEntries.Any())
+            {
+                var leftoverString = string.Join(", ", leftoverEntries);
+                FileLog.Log("*** LINES FOUND WITHOUT MATCH :" + leftoverString);
+            }
+
+            FileLog.Log("Finished loading Nomad values.");
         }
 
         public static void SetGlobal<T>(Dictionary<string, string> dict, string key, Action<T> globalSetter)
@@ -42,7 +49,7 @@ namespace NomadExtreme
             string value;
             if (!dict.TryGetValue(key, out value))
             {
-                FileLog.Log("No entry for '" + key + "' found. Defaulting value.");
+                FileLog.Log("* No entry for '" + key + "' found. Defaulting value.");
                 return;
             }
 
@@ -52,11 +59,13 @@ namespace NomadExtreme
                     ? ParseToEnum<T>(value) 
                     : ParseTo<T>(value);
 
+                FileLog.Log("* Setting " + key + " to " + val);
+                dict.Remove(key);
                 globalSetter(val);
             }
             catch (Exception e)
             {
-                FileLog.Log("Bad value for '" + key + "' ('" + value + "'). Defaulting value. Full error below:");
+                FileLog.Log("*** BAD VALUE for '" + key + "' ('" + value + "'). Defaulting value. Full error below:");
                 FileLog.Log(e.Message);
             }
         }

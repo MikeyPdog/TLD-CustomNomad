@@ -11,7 +11,8 @@ namespace NomadExtreme
     {
         static bool Prepare()
         {
-            FileLog.Log(DateTime.Today.ToShortDateString() + " ---- Loaded Nomad Mod.");
+            FileLog.Log("");
+            FileLog.Log(DateTime.Now + " ---- Loading Nomad Mod.");
             try
             {
                 NomadGlobals.LoadFromFile();
@@ -31,7 +32,6 @@ namespace NomadExtreme
             if (GameManager.GetExperienceModeManagerComponent().GetCurrentExperienceModeType() == ExperienceModeType.ChallengeNomad)
             {
                 GameManager.GetExperienceModeManagerComponent().SetExperienceModeType(NomadGlobals.Difficulty);
-//                HUDMessage.AddMessage("Set to stalker!");
                 NomadGlobals.NomadActive = true;
             }
             else
@@ -92,7 +92,6 @@ namespace NomadExtreme
     {
         static void Postfix(Panel_PauseMenu __instance)
         {
-            // If nomad enabled, set result to false, also return false
             if (NomadGlobals.NomadActive)
             {		
 		        __instance.m_PilgrimIcon.gameObject.SetActive(false);
