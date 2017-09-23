@@ -5,42 +5,15 @@ using Harmony;
 
 namespace NomadExtreme
 {
-
-    /*
-     * TODO:
-     * - Get values from XML - copy code from other guy
-     * - Edit number of days required
-     * 
-     */
-
-//    class Main
-//    {
-//        static Main()
-//        {
-//            var harmony = HarmonyInstance.Create("com.github.harmony.NomadExtremeFF");
-//            harmony.PatchAll(Assembly.GetExecutingAssembly());
-//        }
-//
-//        static bool Prepare(HarmonyInstance instance)
-//        {
-//            // startup stuff
-//
-//            return true;
-//        }
-//    }
-
-    // Usually, you will have one class for each method that you want to patch. Inside that class, you define a combination of Prefix, Postfix or Transpiler methods. 
-
-
     public static class NomadGlobals
     {
-        public static float SprintCaloriesMultiplier = 5.0f;
-        public static float DaysToSpendNomad = 5;
-        public static float ClothingRepairMultiplier = 0.5f;
-        public static bool CabinFeverEnabled = false;
-        public static float StarvationDamageMultiplier = 5;
-        public static float CalorieBurnRateMultiplier = 0.5f;
-        public static ExperienceModeType Difficulty = ExperienceModeType.Stalker;
+        public static float SprintCaloriesMultiplier = 1.0f;
+        public static float DaysToSpendNomad = 3;
+        public static float ClothingRepairMultiplier = 1f;
+        public static bool CabinFeverEnabled = true;
+        public static float StarvationDamageMultiplier = 1;
+        public static float CalorieBurnRateMultiplier = 1f;
+        public static ExperienceModeType Difficulty = ExperienceModeType.Voyageur;
 
         public static bool NomadActive { get; set; }
 
@@ -51,19 +24,24 @@ namespace NomadExtreme
                         .Select(l => l.Split(new[] { '=' }))
                         .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
 
-            SprintCaloriesMultiplier    = float.Parse(dic["SprintCaloriesMultiplier"]);
-            DaysToSpendNomad            = float.Parse(dic["DaysToSpendNomad"]);
-            ClothingRepairMultiplier    = float.Parse(dic["ClothingRepairMultiplier"]);
-            CabinFeverEnabled           = bool.Parse(dic["CabinFeverEnabled"]);
-            StarvationDamageMultiplier  = float.Parse(dic["StarvationDamageMultiplier"]);
-            Difficulty = (ExperienceModeType)Enum.Parse(typeof(ExperienceModeType), dic["Difficulty"]);
+            SprintCaloriesMultiplier    = ParseTo<float>(dic["SprintCaloriesMultiplier"]);
+            DaysToSpendNomad            = ParseTo<float>(dic["DaysToSpendNomad"]);
+            ClothingRepairMultiplier    = ParseTo<float>(dic["ClothingRepairMultiplier"]);
+            CabinFeverEnabled           = ParseTo<bool>(dic["CabinFeverEnabled"]);
+            StarvationDamageMultiplier  = ParseTo<float>(dic["StarvationDamageMultiplier"]);
+            Difficulty                  = ParseToEnum<ExperienceModeType>(dic["Difficulty"]);
 
             FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
         }
 
-        public static T ParseString<T>(object obj)
+        public static T ParseTo<T>(object obj)
         {
             return (T)Convert.ChangeType(obj, typeof(T));
+        }
+
+        public static T ParseToEnum<T>(string input)
+        {
+            return (T)Enum.Parse(typeof(T), input);
         }
     }
 }
