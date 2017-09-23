@@ -22,3 +22,9 @@ Maybes:
     * Clothes get wet faster
     * Clothes start getting heavier earlier (before 25% wet)
     * Frostbite risk increased with wet clothes
+
+Donation
+
+If you like this mod, you can buy me a cup of coffee - all donations encourage me to develop more features and mods!
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B4MTA4JTM8YZN)
