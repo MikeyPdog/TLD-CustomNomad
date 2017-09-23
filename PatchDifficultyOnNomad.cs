@@ -21,7 +21,7 @@ namespace NomadExtreme
             {
                 Debug.LogFormat(e.Message);
                 FileLog.Log(e.Message);
-                return false;
+                throw;
             }
 
             return true;
