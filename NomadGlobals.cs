@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Harmony;
@@ -22,16 +23,42 @@ namespace NomadExtreme
             var dic = File.ReadAllLines("mods/CustomNomad.txt")
                         .Where(l => !l.StartsWith("/"))
                         .Select(l => l.Split(new[] { '=' }))
+                        .Where(arr => arr.Length == 2)
                         .ToDictionary(s => s[0].Trim(), s => s[1].Trim());
 
-            SprintCaloriesMultiplier    = ParseTo<float>(dic["SprintCaloriesMultiplier"]);
-            DaysToSpendNomad            = ParseTo<float>(dic["DaysToSpendNomad"]);
-            ClothingRepairMultiplier    = ParseTo<float>(dic["ClothingRepairMultiplier"]);
-            CabinFeverEnabled           = ParseTo<bool>(dic["CabinFeverEnabled"]);
-            StarvationDamageMultiplier  = ParseTo<float>(dic["StarvationDamageMultiplier"]);
-            Difficulty                  = ParseToEnum<ExperienceModeType>(dic["Difficulty"]);
+            SetGlobal<float>(dic, "SprintCaloriesMultiplier", x => SprintCaloriesMultiplier = x);
+            SetGlobal<float>(dic, "DaysToSpendNomad", x => DaysToSpendNomad = x);
+            SetGlobal<float>(dic, "ClothingRepairMultiplier", x => ClothingRepairMultiplier = x);
+            SetGlobal<bool>(dic, "CabinFeverEnabled", x => CabinFeverEnabled = x);
+            SetGlobal<float>(dic, "StarvationDamageMultiplier", x => StarvationDamageMultiplier = x);
+            SetGlobal<float>(dic, "DaysToSpendNomad", x => DaysToSpendNomad = x);
+            SetGlobal<float>(dic, "DaysToSpendNomad", x => DaysToSpendNomad = x);
 
             FileLog.Log("Loaded nomad values:" + string.Join(", ", dic.Select(kvp => kvp.Key + ":" + kvp.Value).ToArray()));
+        }
+
+        public static void SetGlobal<T>(Dictionary<string, string> dict, string key, Action<T> globalSetter)
+        {
+            string value;
+            if (!dict.TryGetValue(key, out value))
+            {
+                FileLog.Log("No entry for '" + key + "' found. Defaulting value.");
+                return;
+            }
+
+            try
+            {
+                T val = typeof(T).IsEnum 
+                    ? ParseToEnum<T>(value) 
+                    : ParseTo<T>(value);
+
+                globalSetter(val);
+            }
+            catch (Exception e)
+            {
+                FileLog.Log("Bad value for '" + key + "' ('" + value + "'). Defaulting value. Full error below:");
+                FileLog.Log(e.Message);
+            }
         }
 
         public static T ParseTo<T>(object obj)

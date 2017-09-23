@@ -1,8 +1,20 @@
-﻿ClothingRepairMultiplier = 0.5
+﻿// Multiplier for the condition increase on repairing clothing. Lower numbers means the player needs more time and cloth to repair everything.
+ClothingRepairMultiplier = 0.5
+
+// Number of days to spend in each location on Nomad.
 DaysToSpendNomad = 5
+
+// Multiplier for how many calories you burn whilst sprinting. Higher numbers will discourage players from sprinting everywhere.
 SprintCaloriesMultiplier = 5.0
+
+// Valid values are true and false. false turns off cabin fever.
 CabinFeverEnabled = false
+
+// Multiplier for how much damage you take when starving (on 0 calories). 
 StarvationDamageMultiplier = 5
+
+// Overall multiplier for calorie burn rate for all activities. Higher the number the faster you get hungry.
 CalorieBurnRateMultiplier = 0.5
+
 // Valid values are Pilgrim, Voyageur, Stalker, Interloper
 Difficulty = Stalker
