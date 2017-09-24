@@ -7,6 +7,7 @@ namespace NomadExtreme
     [HarmonyPatch("GetChecklistNameForKey")]
     public class PatchAddingRegionsToNomadChecklist
     {
+        private static readonly HashSet<string> MissingMappings = new HashSet<string>();
         private static readonly Dictionary<string, string> ChecklistMappings = new Dictionary<string, string>()
         {
             {"Camp Office", "[ML] Camp Office"},
@@ -29,13 +30,15 @@ namespace NomadExtreme
             {"GAMEPLAY_MaintenanceShedA", "[BR] Maintenance Shed"}
         };
 
-        private static readonly HashSet<string> MissingMappings = new HashSet<string>();
-
         private static void Postfix(ref string __result)
         {
             if (ChecklistMappings.ContainsKey(__result))
             {
                 __result = ChecklistMappings[__result];
+                if (NomadGlobals.RegionPrefixHints == false)
+                {
+                    __result = __result.Split(']')[1].Trim();
+                }
             }
             else
             {
@@ -43,7 +46,7 @@ namespace NomadExtreme
                 {
                     return;
                 }
-                FileLog.Log("Missing mapping: " + __result);
+
                 MissingMappings.Add(__result);
             }
         }
