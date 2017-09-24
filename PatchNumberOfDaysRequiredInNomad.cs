@@ -11,6 +11,9 @@ namespace NomadExtreme
         {
             NomadGlobals.NomadActive = true;
             __instance.daysToSpendInEach = NomadGlobals.DaysToSpendNomad;
+
+            PatchNewLocations.AddNewLocations(__instance);
+
             return true;
         }
     }
