@@ -30,14 +30,39 @@ namespace NomadExtreme
             {"GAMEPLAY_MaintenanceShedA", "[BR] Maintenance Shed"}
         };
 
+        private static readonly Dictionary<string, string> ChecklistMappingsNoPrefix = new Dictionary<string, string>()
+        {
+            {"Camp Office", "Camp Office"},
+            {"Trapper's Cabin", "Trapper's Cabin"},
+            {"Forestry Lookout", "Forestry Lookout"},
+            {"Upper Dam/Lower Dam", "Dam interior"},
+            {"Barn", "Barn"},
+            {"Radio Control Hut", "Radio Control Hut"},
+            {"Skeeter's Ridge (Basement)", "Skeeter's Ridge (Basement)"},
+            {"Rural Store", "Crossroads Rural Store"},
+            {"Quonset Garage", "Quonset Garage"},
+            {"Abandoned Lookout", "Abandoned Lookout"},
+            {"Mountaineer's Hut", "Mountaineer's Hut"},
+            {"Lonely Lighthouse", "Lonely Lighthouse"},
+            {"Stone Church", "Stone Church"},
+            {"Cinder Hills Coal Mine", "Cinder Hills Coal Mine"},
+            {"Crumbling Highway (Basement)", "Crumbling Highway (Basement)"},
+            {"GAMEPLAY_HuntingLodgeA", "Hunting Lodge"},
+            {"Forlorn Muskeg", "Forlorn Muskeg"},
+            {"GAMEPLAY_MaintenanceShedA", "Maintenance Shed"}
+        };
+
         private static void Postfix(ref string __result)
         {
             if (ChecklistMappings.ContainsKey(__result))
             {
-                __result = ChecklistMappings[__result];
                 if (NomadGlobals.RegionPrefixHints == false)
                 {
-                    __result = __result.Split(']')[1].Trim();
+                    __result = ChecklistMappingsNoPrefix[__result];
+                }
+                else
+                {
+                    __result = ChecklistMappings[__result];
                 }
             }
             else
