@@ -21,6 +21,7 @@ Check out desktop / harmony.log.txt for errors if things arent working.
 Future:
 * (potential other mod) Frostbite isn't permanent
 * Add optional new locations for new areas (e.g. Broken Railroad hunters lodge)
+* (potential other mod) Tweak wolf spawn rate / behaviour on Stalker (take longer to respawn? Less wolves? They charge more?)
 
 Maybes:
 * Harvesting without a tool takes longer
