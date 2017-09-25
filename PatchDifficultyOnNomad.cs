@@ -49,8 +49,11 @@ namespace NomadExtreme
         {
             if (NomadGlobals.NomadActive)
             {
-                InterfaceManager.m_Panel_Loading.m_CommandToRunAfterLoad = "mission_jump chnmd false";
-                InterfaceManager.m_Panel_Loading.m_SaveAfterLoad = true;
+                if (GameManager.m_ActiveScene == "MainMenu")
+                {
+                    InterfaceManager.m_Panel_Loading.m_CommandToRunAfterLoad = "mission_jump chnmd false";
+                    InterfaceManager.m_Panel_Loading.m_SaveAfterLoad = true;
+                }
             }
         }
     }
