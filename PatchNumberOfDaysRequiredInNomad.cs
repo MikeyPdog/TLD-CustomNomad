@@ -15,5 +15,16 @@ namespace NomadExtreme
         }
     }
 
-    // Maybe add: Hunting Lodge (Broken railroad)
+    [HarmonyPatch(typeof(Localization))]
+    [HarmonyPatch("Get")]
+    class PatchLocalization
+    {
+        private static void Postfix(string key, ref string __result)
+        {
+            if (key == "GAMEPLAY_NomadChallengeLoadText" || key == "GAMEPLAY_NomadChallengeObjective1")
+            {
+                __result = __result.Replace("3", NomadGlobals.DaysToSpendNomad.ToString());
+            }
+        }
+    }
 }
