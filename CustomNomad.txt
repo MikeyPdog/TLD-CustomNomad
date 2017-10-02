@@ -19,8 +19,5 @@ CalorieBurnRateMultiplier = 0.5
 // Valid values are Pilgrim, Voyageur, Stalker, Interloper
 Difficulty = Stalker
 
-// Extra locations include Forlorn Muskeg (anywhere) and Broken Railroad (Hunting Lodge + Maintenance Shed)
-ExtraLocations = true
-
 // Displays each locations Region in the journal checklist
 RegionPrefixHints = true

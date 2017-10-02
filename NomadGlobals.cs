@@ -12,7 +12,6 @@ namespace NomadExtreme
         public static float DaysToSpendNomad = 3;
         public static float ClothingRepairMultiplier = 1f;
         public static bool CabinFeverEnabled = true;
-        public static bool ExtraLocations = false;
         public static bool RegionPrefixHints = false;
         public static float StarvationDamageMultiplier = 1;
         public static float CalorieBurnRateMultiplier = 1f;
@@ -34,7 +33,6 @@ namespace NomadExtreme
             SetGlobal<bool>(dic, "CabinFeverEnabled", x => CabinFeverEnabled = x);
             SetGlobal<float>(dic, "StarvationDamageMultiplier", x => StarvationDamageMultiplier = x);
             SetGlobal<float>(dic, "CalorieBurnRateMultiplier", x => CalorieBurnRateMultiplier = x);
-            SetGlobal<bool>(dic, "ExtraLocations", x => ExtraLocations = x);
             SetGlobal<bool>(dic, "RegionPrefixHints", x => RegionPrefixHints = x);
             SetGlobal<ExperienceModeType>(dic, "Difficulty", x => Difficulty = x);
 

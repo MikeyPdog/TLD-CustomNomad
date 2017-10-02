@@ -50,7 +50,6 @@
     <Compile Include="PatchAddingRegionsToNomadChecklist.cs" />
     <Compile Include="NomadGlobals.cs" />
     <Compile Include="PatchCabinFever.cs" />
-    <Compile Include="PatchNewLocations.cs" />
     <Compile Include="PatchNumberOfDaysRequiredInNomad.cs" />
     <Compile Include="PatchDifficultyOnNomad.cs" />
     <Compile Include="PatchSprintingCalorieBurnRate.cs" />
