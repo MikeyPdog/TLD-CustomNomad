@@ -16,6 +16,8 @@ namespace NomadExtreme
         public static float StarvationDamageMultiplier = 1;
         public static float CalorieBurnRateMultiplier = 1f;
         public static ExperienceModeType Difficulty = ExperienceModeType.Voyageur;
+        public static float HighEncumberanceCalorieMultiplier;
+        public static float EncumberanceCalorieMultiplier;
 
         public static bool NomadActive { get; set; }
 
@@ -33,6 +35,8 @@ namespace NomadExtreme
             SetGlobal<bool>(dic, "CabinFeverEnabled", x => CabinFeverEnabled = x);
             SetGlobal<float>(dic, "StarvationDamageMultiplier", x => StarvationDamageMultiplier = x);
             SetGlobal<float>(dic, "CalorieBurnRateMultiplier", x => CalorieBurnRateMultiplier = x);
+            SetGlobal<float>(dic, "HighEncumberanceCalorieMultiplier", x => HighEncumberanceCalorieMultiplier = x);
+            SetGlobal<float>(dic, "EncumberanceCalorieMultiplier", x => EncumberanceCalorieMultiplier = x);
             SetGlobal<bool>(dic, "RegionPrefixHints", x => RegionPrefixHints = x);
             SetGlobal<ExperienceModeType>(dic, "Difficulty", x => Difficulty = x);
 

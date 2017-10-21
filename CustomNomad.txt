@@ -21,3 +21,9 @@ Difficulty = Stalker
 
 // Displays each locations Region in the journal checklist
 RegionPrefixHints = true
+
+// Multiply calories used when highly encumbered (too encumbered to sprint)
+HighEncumberanceCalorieMultiplier = 4.0
+
+// Multiply calories used when somewhat encumbered (encumbered icon is on screen)
+EncumberanceCalorieMultiplier = 2.0
