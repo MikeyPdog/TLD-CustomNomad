@@ -1,14 +1,19 @@
 # The Long Dark: Custom Nomad Mod
-Mod for The Long Dark to customise the Nomad challenge (primarily to make it harder and more suitable for veterans)
+
+Mod for The Long Dark to customise the Nomad challenge, to make it harder and more interesting!
+
+## Installation
 
 Requires The Long Dark Mod Loader: https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 
 Copy CustomNomad.dll and CustomNomad.txt file into your /mods/ folder. Tweak the values of CustomNomad.txt to suit your game style, or use my values for a hardcore experience!
 
-Features so far:
+## Features
+
 * All features customisable using text file
 * Days required raised from 3 to 5 in each location
 * Difficulty raised from Voyageur to Stalker
+* Skill books added back in
 * Ability to choose start region, no longer start in the farmhouse
 * Clothing repair % reduced
 * Sprinting uses more food
@@ -16,22 +21,18 @@ Features so far:
 * Base calorie usage reduced to compensate for starvation hurting
 * Cabin fever can be toggled off
 
-Check out desktop / harmony.log.txt for errors if things arent working.
+## Donate
 
-Future:
-* (potential other mod) Frostbite isn't permanent
-* Add optional new locations for new areas (e.g. Broken Railroad hunters lodge)
-* (potential other mod) Tweak wolf spawn rate / behaviour on Stalker (take longer to respawn? Less wolves? They charge more?)
-
-Maybes:
-* Harvesting without a tool takes longer
-* Increase wet clothes mechanic
-    * Clothes get wet faster
-    * Clothes start getting heavier earlier (before 25% wet)
-    * Frostbite risk increased with wet clothes
-
-Donation
-
-If you like this mod and would like to support future development, you can donate here:
+If you like this mod and would like to support future development, you can donate a few bucks here:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B4MTA4JTM8YZN)
+
+## Suggestions + feedback
+
+I would love to hear how you find the mod! Did you find it too hard? Too easy? How long did it take you to complete? Suggestions welcome!
+
+Leave a message on my reddit thread https://www.reddit.com/r/thelongdark/comments/720ku8/new_mod_custom_nomad_create_a_hardcore_nomad/
+
+Or leave me a reddit message @MikeyPdog
+
+Enjoy!
