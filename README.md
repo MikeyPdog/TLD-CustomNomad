@@ -16,6 +16,7 @@ Copy CustomNomad.dll and CustomNomad.txt file into your /mods/ folder. Tweak the
 * Skill books added back in
 * Ability to choose start region, no longer start in the farmhouse
 * Clothing repair % reduced
+* Being encumbered uses more calories than before
 * Sprinting uses more food
 * Starvation hurts more, starving all day is no longer optimal
 * Base calorie usage reduced to compensate for starvation hurting
