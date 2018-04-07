@@ -1,29 +1,30 @@
-﻿// Multiplier for the condition increase on repairing clothing. Lower numbers means the player needs more time and cloth to repair everything.
+﻿// Multiplier for the condition increase on repairing clothing. Lower numbers means the player needs more time and cloth to repair everything. 1 is the games default value.
 ClothingRepairMultiplier = 0.5
 
-// Number of days to spend in each location on Nomad.
+// Number of days to spend in each location on Nomad. 3 is the games default value.
 DaysToSpendNomad = 5
 
-// Multiplier for how many calories you burn whilst sprinting. Higher numbers will discourage players from sprinting everywhere.
+// Multiplier for how many calories you burn whilst sprinting. Higher numbers will discourage players from sprinting everywhere. 1 is the games default value.
 SprintCaloriesMultiplier = 5.0
 
 // Valid values are true and false. false turns off cabin fever.
 CabinFeverEnabled = false
 
-// Multiplier for how much damage you take when starving (on 0 calories). 
+// Multiplier for how much damage you take when starving (on 0 calories). 1 is the games default value.
+// This is to prevent players from deliberately starving themselves all day then eating right before sleep.
 StarvationDamageMultiplier = 5
 
-// Overall multiplier for calorie burn rate for all activities. Higher the number the faster you get hungry.
+// Overall multiplier for calorie burn rate for all activities. Higher the number the faster you get hungry. 1 is the games default value.
 CalorieBurnRateMultiplier = 0.5
 
-// Valid values are Pilgrim, Voyageur, Stalker, Interloper
+// Valid values are Pilgrim, Voyageur, Stalker, Interloper. Voyageur is the games default value for Nomad.
 Difficulty = Stalker
 
-// Displays each locations Region in the journal checklist
+// Displays each locations Region in the journal checklist. false is the games default value 
 RegionPrefixHints = true
 
-// Multiply calories used when highly encumbered (too encumbered to sprint)
+// Multiply calories used when highly encumbered (too encumbered to sprint). 1 is the games default value 
 HighEncumberanceCalorieMultiplier = 4.0
 
-// Multiply calories used when somewhat encumbered (encumbered icon is on screen)
+// Multiply calories used when somewhat encumbered (encumbered icon is on screen). 1 is the games default value 
 EncumberanceCalorieMultiplier = 2.0
